@@ -20,7 +20,8 @@ class RTB_Helper {
 
 		$attrs = wp_parse_args( $attrs, $defaults );
 		extract( $attrs );
-
+		
+		$words_per_min    = is_numeric( $words_per_min ) ? $words_per_min : 200;
 		$stripped_content = strip_tags( $content );
 		$total_word       = self::mb_str_word_count( $stripped_content );
 		$reading_minute   = floor( $total_word / $words_per_min );
@@ -34,13 +35,14 @@ class RTB_Helper {
 			$unit_name    = __( 'mins', 'reading-time-block' );
 		}
 
-		$reading_time_html = sprintf( '<%s> %s %s %s %s </%s>',
-			$wrapper_tag,
-			$before_text,
-			$reading_time,
-			$unit_name,
-			$after_text,
-			$wrapper_tag
+		$reading_time_html = sprintf(
+			'<%s> %s %s %s %s </%s>',
+			esc_html( $wrapper_tag ),
+			esc_html( $before_text ),
+			esc_html( $reading_time ),
+			esc_html( $unit_name ),
+			esc_html( $after_text ),
+			esc_html( $wrapper_tag )
 		);
 
 		return $reading_time_html;
