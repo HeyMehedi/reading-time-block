@@ -59,9 +59,9 @@ function Edit(_ref) {
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('div', 'directorist'),
     type: "text",
-    value: attributes.wrapper_text,
+    value: attributes.wrapper_tag,
     onChange: newState => setAttributes({
-      wrapper_text: newState
+      wrapper_tag: newState
     })
   }))));
 }

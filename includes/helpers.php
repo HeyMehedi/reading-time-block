@@ -23,9 +23,8 @@ class RTB_Helper {
 
 		$stripped_content = strip_tags( $content );
 		$total_word       = self::mb_str_word_count( $stripped_content );
-		var_dump( $total_word );
-		$reading_minute  = floor( $total_word / $words_per_min );
-		$reading_seconds = floor( $total_word % $words_per_min / ( $words_per_min / 60 ) );
+		$reading_minute   = floor( $total_word / $words_per_min );
+		$reading_seconds  = floor( $total_word % $words_per_min / ( $words_per_min / 60 ) );
 
 		if ( ! $reading_minute ) {
 			$reading_time = $reading_seconds;

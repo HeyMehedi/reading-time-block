@@ -51,8 +51,8 @@ export default function Edit( { attributes, isSelected, setAttributes } ) {
 					<TextControl
 						placeholder={ __( 'div', 'directorist' ) }
 						type='text'
-						value={ attributes.wrapper_text }
-						onChange={ newState => setAttributes( { wrapper_text: newState } ) }
+						value={ attributes.wrapper_tag }
+						onChange={ newState => setAttributes( { wrapper_tag: newState } ) }
 					/>
 
 				</PanelBody>
