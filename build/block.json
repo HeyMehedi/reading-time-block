@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "create-block/reading-time-block",
+  "version": "0.1.0",
+  "title": "Reading Time Block",
+  "category": "widgets",
+  "icon": "clock",
+  "description": "Example block scaffolded with Create Block tool.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "words_per_min": {
+      "type": "integer",
+      "default": 200
+    },
+    "before_text": {
+      "type": "string",
+      "default": ""
+    },
+    "after_text": {
+      "type": "string",
+      "default": "read"
+    },
+    "wrapper_tag": {
+      "type": "string",
+      "default": "div"
+    }
+  },
+  "textdomain": "reading-time-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}
