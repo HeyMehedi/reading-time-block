@@ -22,9 +22,10 @@ class RTB_Helper {
 		extract( $attrs );
 
 		$stripped_content = strip_tags( $content );
-		$total_word       = str_word_count( $stripped_content );
-		$reading_minute   = floor( $total_word / $words_per_min );
-		$reading_seconds  = floor( $total_word % $words_per_min / ( $words_per_min / 60 ) );
+		$total_word       = self::mb_str_word_count( $stripped_content );
+		var_dump( $total_word );
+		$reading_minute  = floor( $total_word / $words_per_min );
+		$reading_seconds = floor( $total_word % $words_per_min / ( $words_per_min / 60 ) );
 
 		if ( ! $reading_minute ) {
 			$reading_time = $reading_seconds;
@@ -44,5 +45,27 @@ class RTB_Helper {
 		);
 
 		return $reading_time_html;
+	}
+
+	public static function mb_str_word_count( $string, $format = 0, $charlist = '[]' ) {
+		$string = trim( $string );
+		if ( empty( $string ) ) {
+			$words = array();
+		} else {
+			$words = preg_split( '~[^\p{L}\p{N}\']+~u', $string );
+		}
+
+		switch ( $format ) {
+			case 0:
+				return count( $words );
+				break;
+			case 1:
+			case 2:
+				return $words;
+				break;
+			default:
+				return $words;
+				break;
+		}
 	}
 }
